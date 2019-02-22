@@ -10,13 +10,13 @@ class App extends Component {
   }
 
   hueChoice = (event) => {
-    let hueColor = this.state.hue
+    // let hueColor = this.state.hue
     console.log(event)
     this.setState({
-      hue: event.target.value,
+      hue: event.target.value
       // sat: event.target.value,
       // light: event.target.value,
-      color: this.state.color.concat(hueColor)
+      // color: this.state.color.concat(hueColor)
     })
   }
 
@@ -29,6 +29,15 @@ class App extends Component {
   lightChoice = (event) => {
     this.setState({
       light: event.target.value
+    })
+  }
+
+  saveColor = () => {
+    let h = this.state.hue
+    let s = this.state.sat
+    let l = this.state.light
+    this.setState({
+      color: [ h, s, l ]
     })
   }
 
@@ -57,6 +66,12 @@ class App extends Component {
           <p>
             hsl({this.state.hue}, {this.state.sat}%, {this.state.light}%)
           </p>
+          <button onClick={this.saveColor}>Save Color</button>
+          <section>
+            <p>
+              hsl({this.state.color[0]}, {this.state.color[1]}%, {this.state.color[2]}%)
+            </p>
+          </section>
         </section>
       </main>
     )
