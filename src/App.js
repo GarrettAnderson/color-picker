@@ -3,10 +3,11 @@ import React, { Component } from 'react'
 
 class App extends Component {
   state = {
-    hue: '',
-    sat: '',
-    light: '',
-    color: []
+    hue: 20,
+    sat: 10,
+    light: 50,
+    colors: [],
+    newColor: []
   }
 
   hueChoice = (event) => {
@@ -33,12 +34,15 @@ class App extends Component {
   }
 
   saveColor = () => {
-    let h = this.state.hue
-    let s = this.state.sat
-    let l = this.state.light
+    const color = {
+      h: this.state.hue,
+      s: this.state.sat,
+      l: this.state.light
+    }
     this.setState({
-      color: [ h, s, l ]
+      newColor: this.state.colors.concat(color)
     })
+    // console.log(colors)
   }
 
   render() {
@@ -68,9 +72,19 @@ class App extends Component {
           </p>
           <button onClick={this.saveColor}>Save Color</button>
           <section>
-            <p>
+            {this.state.newColor.map((view) => {
+              console.log(view)
+              return (
+                <ul>
+                  <li>
+                    hsl({view.h},{view.s}%,{view.l}%)
+                  </li>
+                </ul>
+              )
+            })}
+            {/* <p>
               hsl({this.state.color[0]}, {this.state.color[1]}%, {this.state.color[2]}%)
-            </p>
+            </p> */}
           </section>
         </section>
       </main>
