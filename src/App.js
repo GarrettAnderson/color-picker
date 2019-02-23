@@ -33,14 +33,14 @@ class App extends Component {
     })
   }
 
-  saveColor = () => {
+  saveColor = (event) => {
     const color = {
       h: this.state.hue,
       s: this.state.sat,
       l: this.state.light
     }
     this.setState({
-      newColor: this.state.colors.concat(color)
+      newColor: this.state.newColor.concat(color)
     })
     // console.log(colors)
   }
@@ -49,9 +49,13 @@ class App extends Component {
     // return <HelloWorld />
     return (
       // <div style={{ backgroundColor: `hsl(50,8%,20%)` }} />
-      <main style={{ backgroundColor: `hsl(${this.state.hue},${this.state.sat}%,${this.state.light}%)` }}>
-        {/* <div style={{ backgroundColor: `hsl(${this.state.hue},${this.state.sat}%,${this.state.light}%)` }} /> */}
-        <h1>Pick a Color, Any Color</h1>
+      // <main style={{ backgroundColor: `hsl(${this.state.hue},${this.state.sat}%,${this.state.light}%)` }}>
+      <main>
+        <section
+          className="color-sample"
+          style={{ backgroundColor: `hsl(${this.state.hue},${this.state.sat}%,${this.state.light}%)` }}
+        />
+        <h1>Pick a Color</h1>
         <section>
           <span>
             <h1>H</h1>
@@ -72,16 +76,24 @@ class App extends Component {
           </p>
           <button onClick={this.saveColor}>Save Color</button>
           <section>
-            {this.state.newColor.map((view) => {
-              console.log(view)
-              return (
-                <ul>
-                  <li>
-                    hsl({view.h},{view.s}%,{view.l}%)
+            <h1>Saved Colors:</h1>
+            <ul>
+              {this.state.newColor.map((view) => {
+                console.log(view)
+                return (
+                  <li
+                    className="saved-color"
+                    style={{
+                      backgroundColor: `hsl(${view.h},${view.s}%,${view.l}%)`
+                    }}
+                  >
+                    <p>
+                      hsl({view.h},{view.s}%,{view.l}%)
+                    </p>
                   </li>
-                </ul>
-              )
-            })}
+                )
+              })}
+            </ul>
             {/* <p>
               hsl({this.state.color[0]}, {this.state.color[1]}%, {this.state.color[2]}%)
             </p> */}

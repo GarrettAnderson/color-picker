@@ -20,3 +20,9 @@ section {
 h1 {
   text-align: center;
 }
+
+.color-sample {
+  border: 3px solid beige;
+  padding: 5rem;
+  margin: 2rem 10rem;
+}
