@@ -77,7 +77,7 @@ class App extends Component {
           <button onClick={this.saveColor}>Save Color</button>
           <section>
             <h1>Saved Colors:</h1>
-            <ul>
+            <ul className="saved-color-list">
               {this.state.newColor.map((view) => {
                 console.log(view)
                 return (
