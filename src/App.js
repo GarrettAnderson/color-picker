@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import ColorSample from './components/ColorSample'
-import HueChoice from './components/HueChoice'
-import SatChoice from './components/SatChoice'
-import LightChoice from './components/LightChoice'
+import Slider from './components/Slider'
 import SavedColors from './components/SavedColors'
 
 
@@ -58,9 +56,9 @@ class App extends Component {
         <ColorSample hue={this.state.hue} sat={this.state.sat} light={this.state.light}></ColorSample>
         <h1>Pick a Color</h1>
         <section>
-          <Slider label="H" max="240"></Slider>
-          <Slider label="S" max="100"></Slider>
-          <Slider label="L" max="100"></Slider>
+          <Slider label="H" max="240" onSlide={this.hueChoice}></Slider>
+          <Slider label="S" max="100" onSlide={this.satChoice}></Slider>
+          <Slider label="L" max="100" onSlide={this.lightChoice}></Slider>
 
         </section>
         <section>

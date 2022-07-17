@@ -11,7 +11,7 @@ class Slider extends Component {
                     type="range" 
                     min="0" 
                     max={this.props.max} 
-                    // onChange={this.props.onHueChange} 
+                    onChange={this.props.onSlide} 
                     />
             </section>
         );
