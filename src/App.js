@@ -3,6 +3,7 @@ import ColorSample from './components/ColorSample'
 import HueChoice from './components/HueChoice'
 import SatChoice from './components/SatChoice'
 import LightChoice from './components/LightChoice'
+import SavedColors from './components/SavedColors'
 
 
 
@@ -57,38 +58,17 @@ class App extends Component {
         <ColorSample hue={this.state.hue} sat={this.state.sat} light={this.state.light}></ColorSample>
         <h1>Pick a Color</h1>
         <section>
-          <HueChoice onHueChange={this.hueChoice}></HueChoice>
-          <SatChoice onSatChange={this.satChoice}></SatChoice>
-          <LightChoice onLightChange={this.lightChoice}></LightChoice>
+          <Slider label="H" max="240"></Slider>
+          <Slider label="S" max="100"></Slider>
+          <Slider label="L" max="100"></Slider>
+
         </section>
         <section>
           <p>
             hsl({this.state.hue}, {this.state.sat}%, {this.state.light}%)
           </p>
           <button onClick={this.saveColor}>Save Color</button>
-          <section>
-            <h1>Saved Colors:</h1>
-            <ul className="saved-color-list">
-              {this.state.newColor.map((view) => {
-                console.log(view)
-                return (
-                  <li
-                    className="saved-color"
-                    style={{
-                      backgroundColor: `hsl(${view.h},${view.s}%,${view.l}%)`
-                    }}
-                  >
-                    <p>
-                      hsl({view.h},{view.s}%,{view.l}%)
-                    </p>
-                  </li>
-                )
-              })}
-            </ul>
-            {/* <p>
-              hsl({this.state.color[0]}, {this.state.color[1]}%, {this.state.color[2]}%)
-            </p> */}
-          </section>
+         <SavedColors newColor={this.state.newColor}></SavedColors>
         </section>
       </main>
     )
