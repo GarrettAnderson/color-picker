@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import ColorSample from './components/ColorSample'
+import HueChoice from './components/HueChoice'
+import SatChoice from './components/SatChoice'
+import LightChoice from './components/LightChoice'
+
+
 
 class App extends Component {
   state = {
@@ -46,26 +51,15 @@ class App extends Component {
   }
 
   render() {
-    // return <HelloWorld />
     return (
-      // <div style={{ backgroundColor: `hsl(50,8%,20%)` }} />
-      // <main style={{ backgroundColor: `hsl(${this.state.hue},${this.state.sat}%,${this.state.light}%)` }}>
+     
       <main>
         <ColorSample hue={this.state.hue} sat={this.state.sat} light={this.state.light}></ColorSample>
         <h1>Pick a Color</h1>
         <section>
-          <span>
-            <h1>H</h1>
-          </span>
-          <input type="range" min="0" max="240" onChange={this.hueChoice} />
-          <span>
-            <h1>S</h1>
-          </span>
-          <input type="range" onChange={this.satChoice} />
-          <span>
-            <h1>L</h1>
-          </span>
-          <input type="range" onChange={this.lightChoice} />
+          <HueChoice onHueChange={this.hueChoice}></HueChoice>
+          <SatChoice onSatChange={this.satChoice}></SatChoice>
+          <LightChoice onLightChange={this.lightChoice}></LightChoice>
         </section>
         <section>
           <p>
