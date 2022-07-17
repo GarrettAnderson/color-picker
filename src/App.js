@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import HelloWorld from './components/HelloWorld'
+import ColorSample from './components/ColorSample'
 
 class App extends Component {
   state = {
@@ -51,10 +51,7 @@ class App extends Component {
       // <div style={{ backgroundColor: `hsl(50,8%,20%)` }} />
       // <main style={{ backgroundColor: `hsl(${this.state.hue},${this.state.sat}%,${this.state.light}%)` }}>
       <main>
-        <section
-          className="color-sample"
-          style={{ backgroundColor: `hsl(${this.state.hue},${this.state.sat}%,${this.state.light}%)` }}
-        />
+        <ColorSample hue={this.state.hue} sat={this.state.sat} light={this.state.light}></ColorSample>
         <h1>Pick a Color</h1>
         <section>
           <span>
