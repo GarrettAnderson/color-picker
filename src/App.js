@@ -37,6 +37,13 @@ class App extends Component {
     })
   }
 
+  updateColorChoiceSlider = (event, key) => {
+    this.setState({
+      [key]: event.target.value
+    })
+    console.log(this.state[key])
+  }
+
   saveColor = (event) => {
     const color = {
       h: this.state.hue,
@@ -59,7 +66,6 @@ class App extends Component {
           <Slider label="H" max="240" onSlide={this.hueChoice}></Slider>
           <Slider label="S" max="100" onSlide={this.satChoice}></Slider>
           <Slider label="L" max="100" onSlide={this.lightChoice}></Slider>
-
         </section>
         <section>
           <p>
