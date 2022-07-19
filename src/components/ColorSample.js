@@ -5,7 +5,7 @@ class ColorSample extends Component {
         return (
             <section
             className="color-sample"
-            style={{ backgroundColor: `hsl(${this.props.hue},${this.props.sat}%,${this.props.light}%)` }}
+            style={{ backgroundColor: `hsl(${this.props.hue},${this.props.sat}%,${this.props.light}%,${this.props.alpha}%)` }}
           />
         );
     }

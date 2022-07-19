@@ -12,11 +12,11 @@ class SavedColors extends Component {
                     <li
                         className="saved-color"
                         style={{
-                        backgroundColor: `hsl(${view.h},${view.s}%,${view.l}%)`
+                        backgroundColor: `hsl(${view.h},${view.s}%,${view.l}%,${view.a}%)`
                         }}
                     >
                         <p>
-                        hsl({view.h},{view.s}%,{view.l}%)
+                        hsl({view.h},{view.s}%,{view.l}%,{view.a}%)
                         </p>
                     </li>
                     )
