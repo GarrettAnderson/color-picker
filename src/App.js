@@ -15,6 +15,16 @@ class App extends Component {
     newColor: []
   }
 
+  componentDidMount() {
+    this.setState({
+      hue: Math.floor(Math.random() * 240),
+      sat: Math.floor(Math.random() * 100),
+      light: Math.floor(Math.random() * 100),
+      alpha: Math.floor(Math.random() * 100),
+
+    })
+  }
+
   hueChoice = (event) => {
     console.log(event)
     this.setState({
@@ -64,7 +74,9 @@ class App extends Component {
   render() {
     return (
      
-      <main>
+      <main style={{
+        backgroundColor: `hsl(${this.state.hue},${this.state.sat}%,${this.state.light}%,${this.state.alpha}%)`
+        }}>
         <ColorSample hue={this.state.hue} sat={this.state.sat} light={this.state.light} alpha={this.state.alpha}></ColorSample>
         <h1>Pick a Color</h1>
         <section>
